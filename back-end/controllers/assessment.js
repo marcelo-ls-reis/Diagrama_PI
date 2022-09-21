@@ -1,4 +1,4 @@
-const User = require('../models/user')
+const Assessment = require('../models/assessment')
 
 const controller = {} // objeto vazio
 
@@ -13,7 +13,7 @@ const controller = {} // objeto vazio
 
 controller.create = async (req, res) => {
     try {
-        await User.create(req.body)
+        await Assessment.create(req.body)
         // HTTP 201: Create
         res.status(201).end()
     }
@@ -27,7 +27,7 @@ controller.create = async (req, res) => {
 controller.retrieveAll = async (req, res) => {
     try {
         // find() sem parametros retorna todos os documentos da coleção
-        const result = await User.find()
+        const result = await Assessment.find().populate('user')
         // HTTP 200: OK (implicito)
         res.send(result)
     }
@@ -40,7 +40,7 @@ controller.retrieveAll = async (req, res) => {
 
 controller.retrieveOne = async (req, res) => {
     try {
-        const result = await User.findById(req.params.id)
+        const result = await Assessment.findById(req.params.id)
 
         // HTTP 200: OK (implicito)
         if (result) res.send(result)  // Encontrou o documento
@@ -56,7 +56,7 @@ controller.retrieveOne = async (req, res) => {
 
 controller.update = async (req, res) => {
     try {
-        const result = await User.findByIdAndUpdate(req.params.id, req.body)
+        const result = await Assessment.findByIdAndUpdate(req.params.id, req.body)
 
 
         if (result) return res.status(204).end() // Encontrou e atualizou
@@ -71,7 +71,7 @@ controller.update = async (req, res) => {
 
 controller.delete = async (req, res) => {
     try{
-        const result = await User.findByIdAndDelete(req.params.id)
+        const result = await Assessment.findByIdAndDelete(req.params.id)
 
         // 204: No Connect
         if(result) res.status(204).end() // Encontrou deletou
