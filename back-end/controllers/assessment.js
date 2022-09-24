@@ -70,11 +70,11 @@ controller.update = async (req, res) => {
 }
 
 controller.delete = async (req, res) => {
-    try{
+    try {
         const result = await Assessment.findByIdAndDelete(req.params.id)
 
         // 204: No Connect
-        if(result) res.status(204).end() // Encontrou deletou
+        if (result) res.status(204).end() // Encontrou deletou
         else res.status(404).end  // não encontrou
     }
     catch (error) {

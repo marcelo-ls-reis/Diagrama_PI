@@ -1,23 +1,23 @@
 const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
-    
+
     order: {
         type: Number,
         require: true,
-        select:false
+        select: false
     },
     nome: {
         type: String,
         require: true,
-        select:false
+        select: false
     },
     descripition: {
         type: String,
         require: true,
-        select:false
+        select: false
     },
-    
+
 })
 
 /*

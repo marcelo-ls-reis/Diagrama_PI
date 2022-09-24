@@ -9,14 +9,14 @@ const schema = mongoose.Schema({
     enuntiation: {
         type: String,
         require: true,
-        select:false
+        select: false
     },
-    glossary_entries: {
-        type: mongoose.ObjectId, // Tipo especial
-        ref: "Glossary_entries",// Coleção referenciada
+    glossary_rets: [{
+        type: mongoose.ObjectId,
+        ref: "Glossary_rets",
         required: true
-    }, 
-    
+    }],
+
 })
 
 /*

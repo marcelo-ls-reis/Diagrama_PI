@@ -10,11 +10,11 @@ const schema = mongoose.Schema({
         type: mongoose.ObjectId, // Tipo especial
         ref: "Question",// Coleção referenciada
         required: true
-    }, 
+    },
     answer: {
         type: String,
         require: true,
-        select:false
+        select: false
     },
     comment: {
         type: Boolean,

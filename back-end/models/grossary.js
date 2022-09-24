@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
-    
+
     entry: {
         type: String,
         require: true,
-        select:false
+        select: false
     },
     descripition: {
         type: String,
         require: true,
-        select:false
+        select: false
     },
-    
+
 })
 
 /*

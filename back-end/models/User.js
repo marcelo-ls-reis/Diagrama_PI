@@ -13,7 +13,7 @@ const schema = mongoose.Schema({
     password_has: {
         type: String,
         require: true,
-        select:false
+        select: false
     },
     is_admin: {
         type: Boolean,
