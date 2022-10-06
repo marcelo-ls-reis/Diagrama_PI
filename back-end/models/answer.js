@@ -1,25 +1,27 @@
 const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
-    assessment: {
-        type: mongoose.ObjectId, // Tipo especial
-        ref: "Assesment",// Coleção referenciada
-        required: true
-    },
     question: {
         type: mongoose.ObjectId, // Tipo especial
         ref: "Question",// Coleção referenciada
         required: true
+        /*
+            Valores possivel para o campo "answer":
+            Y: sim (yes)
+            N: não (no)
+            X: não aplicavel (not applicable)
+            P: resposta adiada 
+         */
     },
     answer: {
         type: String,
         require: true,
-        select: false
+        enum: ['Y', 'N', 'X', 'P']
     },
     comment: {
-        type: Boolean,
-        require: true,
-        default: false
+        type: String,
+        require: false,
+        
     },
     answered: {
         type: Date,

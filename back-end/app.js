@@ -34,8 +34,8 @@ app.use('/assessment', assessmentRoute)
 const questionRoute = require('./routes/question')
 app.use('/question', questionRoute)
 
-const answerRoute = require('./routes/answer')
-app.use('/answer', answerRoute)
+// const answerRoute = require('./routes/answer')
+// app.use('/answer', answerRoute)
 
 const grossaryRoute = require('./routes/grossary')
 app.use('/grossary', grossaryRoute)
