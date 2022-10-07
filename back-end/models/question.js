@@ -2,22 +2,23 @@ const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
     criterion: {
-        type: mongoose.ObjectId, // Tipo especial
-        ref: "Criterion",// Coleção referenciada
-        required: true
-    },
-    enuntiation: {
-        type: String,
-        require: true,
-        select: false
-    },
-    glossary_rets: [{
         type: mongoose.ObjectId,
-        ref: "Glossary_rets",
+        ref: 'Criterion'
+    },
+    order: {
+        type: Number,
         required: true
-    }],
-
+    },
+    enunciation: {
+        type: String,
+        required: true
+    },
+    glossary_refs: [{
+        type: mongoose.ObjectId,
+        ref: 'Glossary'
+    }]
 })
+
 
 /*
     Parametros de mongoose.model:

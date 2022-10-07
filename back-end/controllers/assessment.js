@@ -101,6 +101,23 @@ controller.retrieveAllAnswers = async (req, res) => {
     }
 }
 
+controller.retrieveOneAnswer = async (req, res) => {
+    try {
+        const result = await Assessment.findById(req.params.assessment.id).populate({ path: 'answer', populate: { path: 'question' } })
+
+        // HTTP 200: OK (implicito)
+        if (result) res.send(result)  // Encontrou o documento
+        // HTTP 404: Not Found
+        else res.status(404).end()   // não encontrado
+    }
+    catch (error) {
+        console.error(error)
+        // HTTP 500: Internal Server Error
+        res.status(500).send(error)
+    }
+}
+
+
 /***********************************************************************
     Método para o model Answer
  */
